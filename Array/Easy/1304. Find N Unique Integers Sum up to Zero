@@ -1,0 +1,21 @@
+/* https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/ */
+
+class Solution {
+   public int[] sumZero(int n) {
+    int[] arr=new int[n];
+           
+        for(int i=0;i<n;i++){
+            if(i%2==0){
+                arr[i]=i+1;
+            }
+            else{
+                arr[i]=-i;
+            }
+             if(n % 2 != 0 && i == n - 1) {
+                arr[i] = 0;
+            }
+        }
+        
+        return arr;
+    }
+}
