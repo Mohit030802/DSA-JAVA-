@@ -1,0 +1,24 @@
+/* https://leetcode.com/problems/find-the-highest-altitude/ */
+
+class Solution {
+     public int largestAltitude(int[] gain) {
+        int n= gain.length+1;
+        int[] newarr=new int[n];
+
+        newarr[0]=0;
+
+
+            for(int j=0;j< gain.length;j++){
+                newarr[j+1]=gain[j]+newarr[j];
+            }
+
+
+        int max=newarr[0];
+        for (int i=0;i< newarr.length;i++){
+            if (newarr[i]>max){
+                max=newarr[i];
+            }
+        }
+    return max;
+    }
+}
