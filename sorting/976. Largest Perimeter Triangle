@@ -1,0 +1,33 @@
+/* https://leetcode.com/problems/largest-perimeter-triangle/ */
+
+class Solution {
+    public int largestPerimeter(int[] nums) {
+   bubble(nums);
+   int end= nums.length-1;
+   int sum=0;
+   for(int i=end;i>=2;i--){
+       if(nums[i-2]+nums[i-1]>nums[i]){
+           sum=nums[i-2]+nums[i-1]+nums[i];
+           break;
+           
+       }
+       
+   }
+   return sum;
+
+    }
+    static void bubble(int[] arr){
+        boolean swapped;
+        for(int i=0;i< arr.length;i++){
+            swapped=false;
+            for(int j=1;j<arr.length-i;j++){
+                if(arr[j]<arr[j-1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j-1];
+                    arr[j-1]=temp;
+                    swapped=true;
+                }
+            }
+        }
+    }
+}
