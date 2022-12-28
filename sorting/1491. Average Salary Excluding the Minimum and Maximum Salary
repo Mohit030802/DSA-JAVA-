@@ -1,0 +1,30 @@
+/* https://leetcode.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/ */
+
+class Solution {
+   public double average(int[] salary) {
+        insertions(salary);
+        double sum=0;
+        for(int i=1;i< salary.length-1;i++){
+            sum+=salary[i];
+        }
+        return sum/(salary.length-2);
+    }
+    static void insertions(int[] arr){
+        for(int i=0;i< arr.length-1;i++){
+            for(int j=i+1;j>0;j--){
+                if(arr[j]<arr[j-1]){
+                    swap(arr,j,j-1);
+                }
+                else{
+                    break;
+                }
+            }
+        }
+    }
+    static void swap(int[] arr,int first,int second){
+        int temp=arr[first];
+        arr[first]=arr[second];
+        arr[second]=temp;
+    }
+
+}
