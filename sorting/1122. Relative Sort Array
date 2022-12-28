@@ -1,0 +1,26 @@
+/* https://leetcode.com/problems/relative-sort-array/ */
+
+class Solution {
+    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+
+        int[] arr = new int[arr1.length];
+        int[] lenn=new int[1001];
+        for (int i:arr1) {
+            lenn[i]++;
+        }
+        int j=0;
+        for(int i:arr2){
+            while (lenn[i]>0){
+                arr[j++]=i;
+                lenn[i]--;
+            }
+        }
+        for(int k=0;k< lenn.length;k++){
+            while (lenn[k]>0){
+                arr[j++]=k;
+                lenn[k]--;
+            }
+        }
+        return arr;
+    }
+}
