@@ -1,0 +1,23 @@
+/* https://leetcode.com/problems/to-lower-case/ */
+
+
+class Solution {
+    public String toLowerCase(String s) {
+    String str="";
+    if(s==null){
+        return s;
+
+    }
+    if(s==""){
+        return s;
+    }
+    for(char string:s.toCharArray()){
+        if(string>=65 && string<=90){
+            string+=32;
+
+        }
+        str+=string;
+    }
+    return str;
+    }
+}
