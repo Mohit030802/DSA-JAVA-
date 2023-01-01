@@ -1,0 +1,14 @@
+/* https://leetcode.com/problems/single-number/ */
+
+class Solution {
+    public int singleNumber(int[] nums) {
+        int as=0;
+for(int i=0;i<nums.length;i++){
+    as=as^nums[i];
+
+
+}
+return as;
+    }
+    
+}
