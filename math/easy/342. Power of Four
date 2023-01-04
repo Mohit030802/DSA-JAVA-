@@ -1,0 +1,16 @@
+/*  https://leetcode.com/problems/power-of-four/ */
+
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        if(n<1){
+            return false;
+        }
+        int num=n;
+        int count=0;
+        while(n>1){
+            n=n>>2;
+            count+=2;
+        }
+        return (n<<count)==num;
+    }
+}
