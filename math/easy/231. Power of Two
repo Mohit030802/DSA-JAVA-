@@ -1,0 +1,22 @@
+/* https://leetcode.com/problems/power-of-two/ */
+
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if(n<1){
+            return false;
+        }
+        int cnt=0;
+        int temp=n;
+        while(temp!=1){
+            temp=temp>>1;
+            cnt++;
+        }
+        temp=1<<cnt;
+        if((temp|n)==temp){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
