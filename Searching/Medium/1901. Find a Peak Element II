@@ -1,0 +1,41 @@
+/* https://leetcode.com/problems/find-a-peak-element-ii/  */
+
+class Solution {
+     public int[] findPeakGrid(int[][] mat) {
+        int start = 0;
+        int end = mat.length-1;
+        while(end >= start) {
+            int mid= start + (end - start)/2;
+            int maxrow = maxrowele(mat[mid], mat[mid].length-1);
+            if (mid == 0) {
+                if (mat[mid][maxrow] > mat[mid + 1][maxrow]) {
+                    return new int[]{mid, maxrow};
+                }
+            }
+            if (mid == mat.length - 1) {
+                if (mat[mid][maxrow] > mat[mid - 1][maxrow]) {
+                    return new int[]{mid, maxrow};
+                }
+            }
+            if (mat[mid][maxrow] > mat[mid + 1][maxrow] && mat[mid][maxrow] > mat[mid - 1][maxrow]) {
+                return new int[]{mid, maxrow};
+            }
+            if (mat[mid][maxrow] < mat[mid + 1][maxrow]) {
+                start = mid+1;
+            } else {                             
+                end = mid -1;
+            }
+        }
+    return new int[]{-1, -1};
+}
+    static int maxrowele(int[] arr, int end) {
+        int max = 0;
+        for ( int i = 0; i <= end; i++){
+            if (arr[i] > arr[max]){
+                max = i;
+            }
+        }
+    return max;
+    }
+}
+
