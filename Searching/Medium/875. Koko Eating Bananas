@@ -1,0 +1,38 @@
+/* https://leetcode.com/problems/koko-eating-bananas/ */
+
+
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
+int start=1;
+int end=maxele(piles);
+while (start<=end){
+    int mid=start+(end-start)/2;
+    if(caneat(piles,mid,h)){
+        end=mid-1;
+    }
+    else{
+        start=mid+1;
+    }
+
+}
+return start;
+
+    }
+    static boolean caneat(int[] piles,int mid,int h){
+        int count=0;
+        for(int nums:piles){
+            count+=(nums-1)/mid+1;
+
+        }
+        return count<=h;
+    }
+    static int maxele(int[] piles){
+        int max=Integer.MIN_VALUE;
+        for(int nums:piles) {
+            if (nums > max) {
+                max = nums;
+            }
+        }
+        return max;
+    }
+}
