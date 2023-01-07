@@ -1,0 +1,29 @@
+/* https://leetcode.com/problems/minimum-absolute-sum-difference/ */ 
+
+
+class Solution {
+    public int minAbsoluteSumDiff(int[] nums1, int[] nums2) {
+    int low=Integer.MAX_VALUE;
+    int high=Integer.MIN_VALUE;
+    int lowint=nums1[0];
+    int maxint=nums1[nums1.length-1];
+    for(int i=0;i<nums1.length;i++){
+        if(lowint<low){
+            low=lowint;
+        }
+        if(maxint>high){
+            high=maxint;
+            lowint=high;
+        }
+
+    }
+    int count=0;
+    for(int i=0;i< nums1.length-1;i++){
+        for (int j=0;i< nums1.length-1;j++){
+            count+=(nums1[i]-nums2[j]);
+        }
+    }
+    return count;
+
+    }
+}
