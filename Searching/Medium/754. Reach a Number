@@ -1,0 +1,16 @@
+/*  https://leetcode.com/problems/reach-a-number/ */ 
+
+class Solution {
+    public int reachNumber(int target) {
+        target=Math.abs(target);
+int count=0;
+int moves=0;
+int i=1;
+while (count<target||(count-target)%2!=0){
+    count+=i;
+    moves++;
+    i++;
+}
+return moves;
+    }
+}
