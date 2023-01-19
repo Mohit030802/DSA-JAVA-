@@ -1,0 +1,17 @@
+/* https://leetcode.com/problems/excel-sheet-column-number/description/ */
+
+class Solution {
+    public int titleToNumber(String columnTitle) {
+        if(columnTitle.length()==0){
+            return -1;
+        }
+        int sum=0;
+        for(char ch:columnTitle.toCharArray()){
+            sum*=26;
+            sum+=ch-'A'+1;
+
+        }
+        return sum;
+        
+    }
+}
