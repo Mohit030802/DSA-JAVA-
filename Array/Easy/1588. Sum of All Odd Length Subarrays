@@ -1,0 +1,21 @@
+/* https://leetcode.com/problems/sum-of-all-odd-length-subarrays/description/ */
+
+class Solution {
+    public int sumOddLengthSubarrays(int[] arr) {
+      int sum=0;
+    for(int i=0;i<arr.length;i++){
+        int left=i+1;
+        int right=arr.length-i;
+        int numOfSubArray=left*right;
+        int objSubArray;
+        if(numOfSubArray%2==0){
+            objSubArray=numOfSubArray/2;
+        }
+        else{
+            objSubArray=numOfSubArray/2+1;
+        }
+        sum+=objSubArray*arr[i];
+    }
+      return sum;  
+    }
+}
