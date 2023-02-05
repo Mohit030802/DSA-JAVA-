@@ -1,0 +1,30 @@
+/* https://leetcode.com/problems/sort-the-people/ */
+
+class Solution {
+    public String[] sortPeople(String[] names, int[] heights) {
+        String[] arr=new String[names.length];
+        int max=0;
+        int temp=0;
+      int temp1;
+      String str;
+        for(int i=0;i<names.length;i++){
+            max=0;
+            for(int j=i;j<heights.length;j++){
+                if(heights[j]>max){
+                    max=heights[j];
+                    temp=j;
+                }
+            }
+            arr[i]=names[temp];
+        
+        temp1=heights[i];
+        heights[i]=heights[temp];
+        heights[temp]=temp1;
+
+        str=names[i];
+        names[i]=names[temp];
+        names[temp]=str;
+        }
+    return arr;
+    }
+}
