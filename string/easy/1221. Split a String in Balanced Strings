@@ -1,0 +1,24 @@
+/*  https://leetcode.com/problems/split-a-string-in-balanced-strings/description/  */
+
+class Solution {
+    public int balancedStringSplit(String s) {
+        int count=0;
+        int s1=0;
+        int s2=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='L'){
+                s1++;
+            }
+           if(s.charAt(i)=='R'){
+                s2++;
+            }
+        
+        if(s1==s2){
+            count++;
+            s1=0;
+            s2=0;
+        }
+        }
+        return count;
+    }
+}
