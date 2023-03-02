@@ -1,0 +1,32 @@
+/* https://leetcode.com/problems/contains-duplicate-ii/description/ */
+
+#47/52 Test Case passed#
+
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        // int i=0;
+        // int j=0;
+
+        // while(j<nums.length){
+        //     int indiDiff=Math.abs(i-j);
+        //     if(nums[i]==nums[j] && indiDiff<=k){
+        //         return true;
+        //     }
+        //     else if(indiDiff==k || j==nums.length-1){
+        //         j=++i;
+        //     }
+        //     j++;
+        // }
+        // return false;
+        // Arrays.sort(nums);
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]==nums[j] && j-i<=k){
+                    return true;
+                }
+            }
+
+        }
+        return false;
+    }
+}
