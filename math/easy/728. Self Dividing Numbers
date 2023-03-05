@@ -1,0 +1,29 @@
+/* https://leetcode.com/problems/self-dividing-numbers/description/ */
+
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> res=new ArrayList<>();
+        for(int i=left;i<=right;i++){
+            if(isselfdivide(i)){
+                res.add(i);
+            }
+        }
+        return res;
+    }
+    static boolean isselfdivide(int n){
+        if(n<=0){
+            return false;
+        }
+        
+        int temp=n;
+        while(n>0){
+            int rem=n%10;
+            if(rem ==0 || temp%rem!=0){
+                return false;
+            }
+            n=n/10;
+
+        }
+        return true;
+    }
+}
