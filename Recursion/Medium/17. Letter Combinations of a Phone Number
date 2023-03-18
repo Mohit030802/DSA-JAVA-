@@ -1,0 +1,38 @@
+/* https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/ */
+
+
+class Solution {
+    public List<String> letterCombinations(String digits) {
+        return padRet("",digits);
+    } 
+    static ArrayList<String> padRet(String p, String up) {
+        if (up.isEmpty()) {
+            ArrayList<String> list = new ArrayList<>();
+            if(!p.isEmpty()){
+
+            list.add(p);
+            }
+            return list;
+        }
+        int d = up.charAt(0) - '0';
+        int x= (d-2)*3;
+        int y=(d-1)*3;
+        if(d==7||d==8){
+            y+=1;
+        }
+        if(d==8||d==9){
+            x+=1;
+        }
+        if(d==9){
+            y+=2;
+        }
+
+        ArrayList<String> list = new ArrayList<>();
+
+        for (int i =x ; i < y; i++) {
+            char ch = (char) ('a' + i);
+            list.addAll(padRet(p + ch, up.substring(1)));
+        }
+        return list;
+    }
+}
