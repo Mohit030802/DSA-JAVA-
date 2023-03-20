@@ -1,0 +1,34 @@
+/* https://leetcode.com/problems/maximum-number-of-coins-you-can-get/description/ */
+
+class Solution {
+    public int maxCoins(int[] piles) {
+        // insertion(piles);
+        Arrays.sort(piles);
+        int sum=0;
+        int i=piles.length-2;
+        int j=0;
+        while(j<piles.length/3){
+            sum+=piles[i];
+            i-=2;
+            j++;
+        }
+        return sum;
+    }
+    static void insertion(int[] arr){
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=i+1;j>0;j--){
+                if(arr[j]<arr[j-1]){
+                    swap(arr,j,j-1);
+                }
+                else{
+                    break;
+                }
+            }
+        }
+    }
+    static void swap(int[] arr,int first,int second){
+        int temp=arr[first];
+        arr[first]=arr[second];
+        arr[second]=temp;
+    }
+}
