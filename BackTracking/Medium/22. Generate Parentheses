@@ -1,0 +1,25 @@
+/* https://leetcode.com/problems/generate-parentheses/description/ */
+
+class Solution {
+    public List<String> generateParenthesis(int n) {
+       ArrayList<String> res=new ArrayList<>();
+       parentheses("(",1,0,res,n);
+       return res;
+    }
+    static void parentheses(String s,int r,int c,List<String> res,int n){
+        if(s.length()==2*n){
+           
+            res.add(s);
+            return;
+        }
+      
+        if(r<n){
+          parentheses(s+"(",r+1,c,res,n);
+        }
+        if(c<r){
+            parentheses(s+")",r,c+1,res,n);
+        }
+      
+
+    }
+}
