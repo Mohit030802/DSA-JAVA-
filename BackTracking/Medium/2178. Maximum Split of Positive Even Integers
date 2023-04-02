@@ -1,0 +1,30 @@
+/* https://leetcode.com/problems/maximum-split-of-positive-even-integers/description/ */
+
+class Solution {
+    public List<Long> maximumEvenSplit(long finalSum) {
+
+      List<Long> res=new ArrayList<>();
+      if(finalSum%2==1){
+          return res;
+      }
+      
+          Long num=(long) 2;
+      while(finalSum>0){
+          if(num>finalSum/2){
+              num=finalSum;
+          }
+          finalSum-=num;
+          res.add(num);
+          if(num+2<finalSum/2){
+              num=num+2;
+          }
+          else{
+              num=finalSum;
+          }
+      }
+          return res;
+    }
+
+
+    
+}
