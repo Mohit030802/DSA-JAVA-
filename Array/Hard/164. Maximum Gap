@@ -1,0 +1,38 @@
+/*  https://leetcode.com/problems/maximum-gap/description/  */
+
+
+class Solution {
+    public int maximumGap(int[] nums) {
+        if(nums.length<2){
+            return 0;
+        }
+        // insertion(nums);
+        Arrays.sort(nums);
+        int maxGap=nums[1]-nums[0];
+        for(int i=0;i<nums.length-1;i++){
+            int gap=nums[i+1]-nums[i];
+            if(gap>maxGap){
+                maxGap=gap;
+            }
+        }
+        return maxGap;
+    }
+    static int[] insertion(int[] arr){
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=i+1;j>0;j--){
+                if(arr[j]<arr[j-1]){
+                    swap(arr,j,j-1);
+                }
+                else{
+                    break;
+                }
+            }
+        }
+        return arr;
+    }
+    static void swap(int[] arr,int first,int second){
+        int temp=arr[first];
+        arr[first]=arr[second];
+        arr[second]=temp;
+    }
+}
