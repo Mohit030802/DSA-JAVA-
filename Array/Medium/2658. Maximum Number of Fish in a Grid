@@ -1,0 +1,36 @@
+/* https://leetcode.com/problems/maximum-number-of-fish-in-a-grid/description/ */
+
+class Solution {
+    public int findMaxFish(int[][] grid) {
+        int m=grid.length;
+        int n=grid[0].length;
+        int[][] arr=new int[m][n];
+        int maxFish=0;
+        
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]>0){
+                    int fishCaught = dfs(grid, i, j);
+                maxFish = Math.max(maxFish, fishCaught);
+                }
+            }
+        }
+        return maxFish;
+        }
+        
+    private int dfs(int[][] grid, int i, int j) {
+    int m = grid.length;
+    int n = grid[0].length;
+    int fishCaught = grid[i][j];
+    grid[i][j] = 0;
+        int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    for (int[] dir : dirs) {
+        int ni = i + dir[0];
+        int nj = j + dir[1];
+        if (ni >= 0 && ni < m && nj >= 0 && nj < n && grid[ni][nj] > 0) {
+            fishCaught += dfs(grid, ni, nj);
+        }
+    }
+        return fishCaught;
+    }
+}
