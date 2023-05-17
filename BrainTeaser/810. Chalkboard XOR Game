@@ -1,0 +1,16 @@
+/*  https://leetcode.com/problems/chalkboard-xor-game/description/ */
+
+class Solution {
+    public boolean xorGame(int[] nums) {
+        int sumXor=0;
+        for(int i=0;i<nums.length;i++){
+            sumXor^=nums[i];
+        }
+        if(sumXor==0 || nums.length%2==0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
