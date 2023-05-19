@@ -1,0 +1,27 @@
+/* https://leetcode.com/problems/last-moment-before-all-ants-fall-out-of-a-plank/description/ */
+
+class Solution {
+    public int getLastMoment(int n, int[] left, int[] right) {
+        int LeftMax=0;
+        int RightMi=0;
+        if(left.length!=0) LeftMax=left[0];
+        if(right.length!=0) RightMi=right[0];
+        for(int i=0;i<left.length;i++){
+            if(left[i]>LeftMax){
+                LeftMax=left[i];
+            }
+        }
+        for(int i=0;i<right.length;i++){
+            if(right[i]<RightMi){
+                RightMi=right[i];
+            }
+        }
+        if(left.length==0){
+            return n-RightMi;
+        }
+        if(right.length==0){
+            return LeftMax;
+        }
+        return Math.max(LeftMax,n-RightMi);
+   }
+}
